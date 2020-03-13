@@ -17,7 +17,15 @@ def reconstruct_trip(tickets, length):
     route = [None] * length
 
     """
-    YOUR CODE HERE
+    Getting a list of objects each with two sequences,
+    line up the sequences
     """
+    loc = 'NONE'
+    for i in range(0,length):
+        hash_table_insert(hashtable,tickets[i].source,tickets[i].destination)
 
-    pass
+    for i in range(0,length):
+        route[i] = hash_table_retrieve(hashtable, loc)
+        loc = route[i]
+    del route[-1]
+    return route
